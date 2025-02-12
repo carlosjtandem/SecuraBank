@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  #To read entorno variables
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -86,11 +91,11 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# print(os.getenv('DATABASE_URL'))
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': dj_database_url.config(default="postgresql://postgres:QeVMFNWtXggEQvjDJhtVhZvJiQWaOwof@postgres.railway.internal:5432/railway")
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
 }
 
 
