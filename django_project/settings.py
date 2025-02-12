@@ -42,9 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-
+    'rest_framework',
+    'rest_framework_simplejwt',
     'accounts.apps.AccountsConfig',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+    # TOTP (Time-based One-Time Passwords)
+    'tasks',
+    'users',
     # 'users.apps.UsersConfig',
     # 'transacciones.apps.TransaccionesConfig',
 ]
@@ -58,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_otp.middleware.OTPMiddleware',  # Middleware OTP
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -143,3 +149,23 @@ STATIC_ROOT = 'staticfiles/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['http://','https://web-production-d15e.up.railway.app']
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.TokenAuthentication',  # Para tokens
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Para JWT 
+    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
+}
+
+# Configuración JWT
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    #  'AUTH_HEADER_TYPES': ('Bearer',),
+}

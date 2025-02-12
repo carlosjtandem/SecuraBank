@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TOTPDevice
+from .models import Task
 
-admin.site.register(TOTPDevice)
 # Register your models here.
+admin.site.register(Task)
