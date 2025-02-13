@@ -44,14 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-    'accounts.apps.AccountsConfig',
     'django_otp',
     'django_otp.plugins.otp_totp',
     # TOTP (Time-based One-Time Passwords)
     'tasks',
     'users',
-    # 'users.apps.UsersConfig',
-    # 'transacciones.apps.TransaccionesConfig',
+    'accounts.apps.AccountsConfig',
+    'transacciones.apps.TransaccionesConfig',
 ]
 
 MIDDLEWARE = [

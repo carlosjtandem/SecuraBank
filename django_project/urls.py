@@ -32,5 +32,5 @@ urlpatterns = [
     path('api/users/', include('users.urls')),  
     path('api/accounts/', include('accounts.urls')),
     path('api/tasks/', include('tasks.urls')),
-    # path('api/transacciones/', include('transacciones.urls')),
+    path('api/transacciones/', include('transacciones.urls')),
 ]
