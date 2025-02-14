@@ -42,15 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist', # Para blacklist - pendiente
+
     'django_otp',
     'django_otp.plugins.otp_totp',
     # TOTP (Time-based One-Time Passwords)
     'tasks',
-    'users',
+    'users.apps.UsersConfig',
     'accounts.apps.AccountsConfig',
-    'transacciones.apps.TransaccionesConfig',
+    # 'transacciones.apps.TransaccionesConfig',
+    'transacciones',
 ]
 
 MIDDLEWARE = [
