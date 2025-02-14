@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist', # Para blacklist - pendiente
+    # 'rest_framework_simplejwt.token_blacklist', # Para blacklist - pendiente
 
     'django_otp',
     'django_otp.plugins.otp_totp',
